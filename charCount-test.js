@@ -1,16 +1,25 @@
 function countLetters (string) {
-  let letters = [/a/gi, /b/gi, /c/gi, /d/gi, /e/gi]
-  var toCount = []
+  const regExLet = [/a/gi, /b/gi, /c/gi, /d/gi, /e/gi, /f/gi, /g/gi, /h/gi, /i/gi, /j/gi, /k/gi, /l/gi, /m/gi, /n/gi, /o/gi, /p/gi, /q/gi, /r/gi, /s/gi, /t/gi, /u/gi, /v/gi, /w/gi, /x/gi, /y/gi, /z/gi]
+  const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  countObj = {
+  }
+  //var toCount = []
   let aVar = /a/gi
-  for (i = 0; i < letters.length; i++) {
-    while ((match = letters[i].exec(string)) != null) {
-      toCount.push(match.index)
+  for (i = 0; i < regExLet.length; i++) {
+    var char = letters[i];
+    // var match = regExLet[i].exec(string)
+    let count = 0;
+    while (regExLet[i].exec(string) != null) {
+      count++;
+    }
+
+    if (count !== 0) {
+      countObj[char] = count;
     }
   }
-  console.log(toCount.length)
-  console.log(toCount)
+  console.log(countObj)
   //console.log("there are " + toCount.length + " instances of " + " in " + string)
 }
 
-countLetters("how many a's are there?")
+countLetters("the quick fox jumped over the lazy brown dog")
 
